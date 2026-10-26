@@ -46,8 +46,8 @@ The project runs on Windows, macOS and Linux. Running it on a Raspberry Pi is pl
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/fpant1/Local-Radar.git
-cd Local-Radar
+git clone https://github.com/fpant1/Multi-Radar-Project.git
+cd Multi-Radar-Project
 ```
 
 ### 2. Create a virtual environment and install dependencies
@@ -326,7 +326,7 @@ FastAPI also serves interactive API docs at <http://127.0.0.1:8000/docs>.
 ## Project layout
 
 ```text
-Local-Radar/
+Multi-Radar-Project/
 ├── src/
 │   ├── server.py              # FastAPI app and browser server entry point
 │   ├── main.py                # Terminal aircraft feed entry point

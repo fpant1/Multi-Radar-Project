@@ -86,7 +86,7 @@ At the moment every setting is a command-line flag. A service is easier to manag
 
   ```bash
   sudo useradd --system --create-home --home-dir /opt/local-radar --groups dialout local-radar
-  sudo -u local-radar git clone https://github.com/fpant1/Local-Radar.git /opt/local-radar/app
+  sudo -u local-radar git clone https://github.com/fpant1/Multi-Radar-Project.git /opt/local-radar/app
   cd /opt/local-radar/app
   sudo -u local-radar python3 -m venv .venv
   sudo -u local-radar .venv/bin/pip install -r requirements.txt
