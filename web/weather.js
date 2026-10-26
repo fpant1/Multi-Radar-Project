@@ -1,8 +1,7 @@
 export const WEATHER_FETCH_INTERVAL_MS = 60000;
 
-const BASE_TILE_URL = "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png";
-const BASE_ATTRIBUTION =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>';
+const BASE_TILE_URL = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
+const BASE_ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 const RAINVIEWER_ATTRIBUTION = '&copy; <a href="https://www.rainviewer.com/">RainViewer</a>';
 const DEFAULT_ZOOM = 8;
 const MAX_RADAR_ZOOM = 10;
@@ -99,7 +98,6 @@ function createWeatherMap(L, container, home, rangeKm) {
     detectRetina: true,
     maxZoom: 19,
     pane: "weatherBasePane",
-    subdomains: "abcd",
   }).addTo(map);
 
   const rangeCircle = L.circle(home, {

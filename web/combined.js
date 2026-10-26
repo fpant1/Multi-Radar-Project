@@ -192,13 +192,11 @@ function updateWeatherMap(data) {
     map.getPane("weatherBasePane").classList.add("weather-base-pane");
     map.getPane("weatherRadarPane").classList.add("weather-radar-pane");
 
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       detectRetina: true,
       maxZoom: 19,
       pane: "weatherBasePane",
-      subdomains: "abcd",
     }).addTo(map);
 
     const rangeCircle = L.circle(home, {

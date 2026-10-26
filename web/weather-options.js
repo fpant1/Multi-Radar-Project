@@ -4,28 +4,9 @@ const RAINVIEWER_METADATA_URL = "https://api.rainviewer.com/public/weather-maps.
 const RAINVIEWER_HOST_FALLBACK = "https://tilecache.rainviewer.com";
 
 const BASE_LAYERS = {
-  voyager: {
-    url: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-    subdomains: "abcd",
-    maxZoom: 19,
-  },
-  voyagerNoLabels: {
-    url: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png",
-    subdomains: "abcd",
-    maxZoom: 19,
-  },
-  positron: {
-    url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-    subdomains: "abcd",
-    maxZoom: 19,
-  },
-  darkMatter: {
-    url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-    subdomains: "abcd",
-    maxZoom: 19,
-  },
   osm: {
     url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 19,
   },
 };
@@ -36,7 +17,7 @@ const OPTIONS = [
     title: "Current Wide",
     note: "This is the current furthest-out view: best radar fidelity and the broadest incoming-weather picture.",
     tags: ["current", "furthest out", "zoom 7"],
-    base: "voyager",
+    base: "osm",
     baseClass: "base-balanced",
     radarClass: "radar-soft",
     radarOpacity: 0.72,
@@ -48,7 +29,7 @@ const OPTIONS = [
     title: "Area View",
     note: "One step closer, with more useful town, road, park, and river context while still seeing the wider weather shape.",
     tags: ["balanced", "closer", "zoom 8"],
-    base: "voyager",
+    base: "osm",
     baseClass: "base-balanced",
     radarClass: "radar-soft",
     radarOpacity: 0.72,
@@ -60,7 +41,7 @@ const OPTIONS = [
     title: "Local View",
     note: "A practical local scale for a desk display: neighbourhoods become recognisable, but radar is now upscaled.",
     tags: ["local", "more detail", "zoom 9"],
-    base: "voyager",
+    base: "osm",
     baseClass: "base-balanced",
     radarClass: "radar-soft",
     radarOpacity: 0.72,
@@ -72,7 +53,7 @@ const OPTIONS = [
     title: "Close View",
     note: "The closest option: strongest map context for a small screen, but the rain layer will be visibly enlarged.",
     tags: ["closest", "small screen", "zoom 10"],
-    base: "voyager",
+    base: "osm",
     baseClass: "base-balanced",
     radarClass: "radar-soft",
     radarOpacity: 0.72,
@@ -263,6 +244,7 @@ function initMap(option, data, home, rangeKm) {
   const base = BASE_LAYERS[option.base];
   L.tileLayer(base.url, {
     detectRetina: true,
+    attribution: base.attribution,
     maxZoom: base.maxZoom,
     pane: basePane,
     subdomains: base.subdomains || "",
