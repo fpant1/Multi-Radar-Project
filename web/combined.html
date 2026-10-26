@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Combined Radar Console</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/combined.css?v=20260811-combined" />
+  </head>
+  <body>
+    <main class="console">
+      <header class="console-topbar">
+        <div class="brand-block">
+          <span class="eyebrow">LOCAL RADAR</span>
+          <h1>COMBINED CONSOLE</h1>
+        </div>
+        <div class="status-strip">
+          <span id="roomStatus" class="status-pill">ROOM --</span>
+          <span id="airStatus" class="status-pill">AIR --</span>
+          <span id="weatherStatus" class="status-pill">WX --</span>
+        </div>
+      </header>
+
+      <section class="dashboard-grid">
+        <section class="panel room-panel">
+          <div class="panel-header">
+            <span>ROOM RADAR</span>
+            <span id="roomRangeLabel">RANGE -- M</span>
+          </div>
+          <canvas id="roomRadarCanvas" aria-label="Room radar display"></canvas>
+          <div id="roomReadout" class="readout-grid"></div>
+        </section>
+
+        <section class="panel air-panel">
+          <div class="panel-header">
+            <span>AIR RADAR</span>
+            <span id="airCountLabel">-- / --</span>
+          </div>
+          <canvas id="airRadarCanvas" aria-label="Aircraft radar display"></canvas>
+        </section>
+
+        <section class="panel weather-panel">
+          <div class="panel-header">
+            <span>WEATHER RADAR</span>
+            <span id="weatherFrameLabel">FRAME --</span>
+          </div>
+          <div id="combinedWeatherMap" class="weather-map" aria-label="Weather radar map"></div>
+          <div class="weather-mask"></div>
+          <div id="weatherMessage" class="panel-message">WAITING FOR RAINVIEWER</div>
+        </section>
+      </section>
+
+      <footer class="console-footer">
+        <span id="updateLabel">UPDATE --:--:--</span>
+        <span id="errorLabel"></span>
+      </footer>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="/combined.js?v=20260811-combined"></script>
+  </body>
+</html>

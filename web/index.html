@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Local Radar</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/styles.css?v=20260624-weather-smooth" />
+  </head>
+  <body class="theme-crt">
+    <main class="shell">
+      <header class="topbar">
+        <div id="screenTitle" class="brand">AIR RADAR</div>
+        <div id="rangeLabel" class="readout">RANGE -- KM</div>
+        <div id="providerStatus" class="status-pill">STARTING</div>
+        <button id="themeToggle" class="icon-button" type="button" aria-label="Toggle theme">CRT</button>
+      </header>
+
+      <section class="main-grid">
+        <div id="airRadarStage" class="radar-stage">
+          <canvas id="radarCanvas" aria-label="Aircraft radar display"></canvas>
+        </div>
+
+        <section id="weatherStage" class="weather-stage" hidden>
+          <div id="weatherMap" class="weather-map" aria-label="RainViewer precipitation radar centred on home location"></div>
+          <div class="weather-legend" aria-hidden="true">
+            <span><i class="legend-swatch light"></i>Light</span>
+            <span><i class="legend-swatch moderate"></i>Moderate</span>
+            <span><i class="legend-swatch heavy"></i>Heavy</span>
+          </div>
+          <div class="weather-mask"></div>
+          <div class="weather-crosshair" aria-hidden="true"></div>
+          <div id="weatherMessage" class="weather-message">WEATHER RADAR READY</div>
+        </section>
+
+        <aside id="airSidePanel" class="side-panel">
+          <div class="panel-heading">
+            <span>TRACK</span>
+            <span id="contactCount">0 / 0</span>
+          </div>
+          <div id="activeContact" class="active-contact"></div>
+        </aside>
+      </section>
+
+      <footer class="statusbar">
+        <span id="themeLabel">CRT GREEN</span>
+        <span id="filterLabel">FILTER: NEAREST</span>
+        <span id="updateLabel">UPDATE --:--:--</span>
+        <span id="errorLabel"></span>
+      </footer>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="/app.js?v=20260624-weather-smooth"></script>
+  </body>
+</html>

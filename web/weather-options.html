@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weather Radar Zoom Options</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/weather-options.css?v=20260625-zoom" />
+  </head>
+  <body>
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Weather Radar Zoom</p>
+        <h1>Pick The Scale</h1>
+      </div>
+      <a class="back-link" href="/">Back To Radar</a>
+    </header>
+
+    <main>
+      <section id="optionGrid" class="option-grid" aria-live="polite"></section>
+      <p id="loadStatus" class="load-status">Loading live RainViewer frame...</p>
+    </main>
+
+    <footer class="page-footer">
+      Map data from OpenStreetMap/CARTO where shown. Radar tiles from RainViewer.
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="/weather-options.js?v=20260625-zoom"></script>
+  </body>
+</html>
